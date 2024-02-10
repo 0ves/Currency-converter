@@ -4,7 +4,7 @@ import useCurrencyInfo  from './hooks/useCurrencyInfo'
 
 function App() {
    
-  const [amount , setAmount] = useState(0)
+  const [amount , setAmount] = useState(1)
   const [from, setFrom] = useState('usd')
   const [to, setTo] = useState('inr')  
   const [convetedAmount, setConvertedAmount] = useState(0)
@@ -44,7 +44,7 @@ function App() {
                             currencyOptions={options}
                             onCurrencyChange={(currency) => setAmount(currency)}
                             selectCurrency={from}
-                            onAmountChange={(amount) => setAmount(amount)}
+                            onAmountChange={(amount) => amount===0? setAmount() : setAmount(amount)}
                         />
                     </div>
                     <div className="relative w-full h-0.5">
